@@ -1,0 +1,414 @@
+/* ================================================
+   Base / Reset Styles
+   These ensure a consistent starting point across browsers.
+   ================================================ */
+
+/* The * selector affects every element on the page.
+   margin:0; padding:0; removes default spacing browsers add. */
+* {
+  margin: 0;     /* Remove default outer space for all elements */
+  padding: 0;    /* Remove default inner space for all elements */
+  box-sizing: border-box; /* Make width/padding behavior more intuitive */
+}
+
+/* html, body selectors set base full-page sizing etc. */
+html, body {
+  height: 100%;  /* Make html and body cover full vertical height */
+}
+
+/* A base style for the <body> — sets default font, background, etc. */
+body {
+  background-color: black;  /* Fallback background for Theme 1 (ACE Retro) */
+  color: #00ffff;            /* Default text color for Theme 1 */
+  font-family: Arial, Helvetica, sans-serif;  /* Base font for body text, lists, paragraphs, lower-level headers */
+  line-height: 1.5;          /* Sets line spacing: 1.5 × font size, improves readability */
+  margin: 0;                 /* Redundant, but explicit reset */
+  padding: 0;                /* Redundant, but explicit reset */
+}
+
+/* ================================================
+   THEME 1: ACE Retro 1995
+   Comment out this entire block to switch to Theme 2.
+   ================================================ */
+
+/* HEADINGS: h1, h2, h3 use Georgia; h4-h6 inherit body (sans-serif) */
+h1 {
+  font-family: Georgia, serif;  /* Use elegant stylized font for main header */
+  color: #00ffff;               /* Neon teal color */
+  font-size: 2.5em;             /* 2.5 times the base font size */
+  text-align: center;           /* Center the header */
+  margin-bottom: 0.5em;         /* Space below header before next element */
+}
+
+h2 {
+  font-family: Georgia, serif;
+  color: #ff66cc;  /* Bright pink/pastel for contrast */
+  font-size: 2em;
+  margin-bottom: 0.4em;
+}
+
+h3 {
+  /* Below h3, h4-h6 will NOT use Georgia — they fall back to body font */
+  font-family: Georgia, serif;
+  color: #ccccff;
+  font-size: 1.5em;
+  margin-bottom: 0.3em;
+}
+
+h4 {
+  /* No font-family defined: inherits from body (Arial / sans-serif) */
+  color: #cccccc;
+  font-size: 1.2em;
+  margin-bottom: 0.25em;
+}
+
+h5 {
+  color: #aaaaaa;
+  font-size: 1em;
+  margin-bottom: 0.2em;
+}
+
+h6 {
+  color: #888888;
+  font-size: 0.9em;
+  margin-bottom: 0.15em;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1em;   /* Space after each paragraph */
+  color: inherit;       /* Use the current text color (inherited) */
+  font-size: 1em;       /* Same as base font size */
+}
+
+/* Links */
+a {
+  color: #00ffff;       /* Neon teal for link text */
+  text-decoration: none; /* Remove underline by default */
+}
+
+a:hover {
+  color: #ff66cc;        /* Change to pink on hover */
+  text-decoration: underline; /* Add underline on hover for feedback */
+}
+
+/* Lists: unordered and ordered */
+ul {
+  list-style-type: disc;   /* Bullet points (solid discs) */
+  margin-left: 1.5em;      /* Indent the list from left edge */
+  margin-bottom: 1em;      /* Space after the list */
+}
+
+ol {
+  list-style-type: decimal; /* Numbered list */
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+/* List items */
+li {
+  margin-bottom: 0.5em; /* Space between each list item */
+}
+
+/* Images */
+img {
+  max-width: 100%;       /* Prevent images from overflowing their container */
+  height: auto;          /* Maintain aspect ratio */
+  display: block;        /* Remove inline spacing issues */
+  margin-bottom: 1em;    /* Space below images */
+}
+
+/* Containers, boxes, “cards” */
+.card {
+  background-color: #111;        /* Very dark background inside card */
+  border: 1px solid #00ffff;     /* Neon border to highlight card */
+  padding: 1em;                   /* Inner spacing inside the card */
+  margin-bottom: 1em;             /* Space below each card */
+  border-radius: 4px;             /* Slight rounded corners */
+}
+
+/* Utility box class (for generic containers) */
+.box {
+  background-color: #222;
+  border: 1px solid #00ffff;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+/* Tables */
+table {
+  width: 100%;                   /* Table takes full container width */
+  border-collapse: collapse;     /* Merge borders where cells touch */
+  margin-bottom: 1em;
+}
+
+th, td {
+  border: 1px solid #00ffff;     /* Neon border for all cells */
+  padding: 0.5em;                /* Space inside each cell */
+  text-align: left;              /* Left-align cell content */
+}
+
+th {
+  background-color: #222;        /* Dark header row */
+  color: #00ffff;                /* Neon header text */
+}
+
+/* Forms: inputs, selects, textareas, buttons */
+input, select, textarea {
+  font-family: Arial, Helvetica, sans-serif; /* Use body’s sans-serif font */
+  font-size: 1em;
+  padding: 0.5em;                /* Inner spacing */
+  margin-bottom: 1em;            /* Space below each form field */
+  border: 1px solid #00ffff;     /* Neon border */
+  background-color: #000;        /* Black background for fields */
+  color: #00ffff;                /* Neon text inside fields */
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;                 /* Remove default focus outline */
+  border-color: #ff66cc;         /* Change border to pink when focused */
+}
+
+button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  padding: 0.5em 1em;            /* Vertical + horizontal spacing */
+  margin-bottom: 1em;
+  background-color: #00ffff;
+  color: #000;                   /* Black text on neon button */
+  border: 1px solid #00ffff;
+  cursor: pointer;               /* Mouse cursor shows pointer over button */
+}
+
+button:hover {
+  background-color: #ff66cc;     /* Pink background on hover */
+  color: #000;
+}
+
+/* Horizontal rule (divider) */
+hr {
+  border: 0;                     /* Remove default border */
+  height: 1px;                   /* 1 pixel tall line */
+  background-color: #00ffff;     /* Neon line */
+  margin: 1em 0;                 /* Space above and below hr */
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid #00ffff; /* Neon left border */
+  margin: 1em 2em;               /* Indent blockquote both sides */
+  padding: 0.5em 1em;            /* Inner spacing */
+  color: #ccccff;                /* Softer text color inside quote */
+  background-color: #111;        /* Slight contrasting background */
+}
+
+/* Code / preformatted text */
+code, pre {
+  font-family: monospace;        /* Use monospace font for code readability */
+  background-color: #111;       /* Dark background for code blocks */
+  color: #00ffff;                /* Neon code text color */
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  overflow-x: auto;             /* Horizontal scroll if code is wide */
+  padding: 1em;
+}
+
+/* Links inside code (rare but possible) */
+code a {
+  color: #ff66cc;                /* Pink for links inside code blocks */
+}
+
+/* ================================================
+   THEME 2: DRAGONEYE
+   Uncomment this block and comment out Theme 1 to activate.
+   Same structural rules as Theme 1 but different colors.
+   ================================================ */
+
+/*
+body {
+  background-color: #000000;
+  color: #ffcc00;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: Georgia, serif;
+  color: #ff0000;
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-family: Georgia, serif;
+  color: #ffa500;
+  font-size: 2em;
+  margin-bottom: 0.4em;
+}
+
+h3 {
+  font-family: Georgia, serif;
+  color: #ffcc00;
+  font-size: 1.5em;
+  margin-bottom: 0.3em;
+}
+
+h4 {
+  color: #e6e6e6;
+  font-size: 1.2em;
+  margin-bottom: 0.25em;
+}
+
+h5 {
+  color: #cccccc;
+  font-size: 1em;
+  margin-bottom: 0.2em;
+}
+
+h6 {
+  color: #999999;
+  font-size: 0.9em;
+  margin-bottom: 0.15em;
+}
+
+p {
+  margin-bottom: 1em;
+  color: inherit;
+  font-size: 1em;
+}
+
+a {
+  color: #ffcc00;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ff0000;
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+ol {
+  list-style-type: decimal;
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 1em;
+}
+
+.card {
+  background-color: #220000;
+  border: 1px solid #ff0000;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 4px;
+}
+
+.box {
+  background-color: #330000;
+  border: 1px solid #ffcc00;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+
+th, td {
+  border: 1px solid #ffcc00;
+  padding: 0.5em;
+  text-align: left;
+}
+
+th {
+  background-color: #220000;
+  color: #ffcc00;
+}
+
+input, select, textarea {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: 1px solid #ffcc00;
+  background-color: #000000;
+  color: #ffcc00;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #ff0000;
+}
+
+button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  padding: 0.5em 1em;
+  margin-bottom: 1em;
+  background-color: #ffcc00;
+  color: #000000;
+  border: 1px solid #ffcc00;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff0000;
+  color: #000000;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #ffcc00;
+  margin: 1em 0;
+}
+
+blockquote {
+  border-left: 4px solid #ffcc00;
+  margin: 1em 2em;
+  padding: 0.5em 1em;
+  color: #ffcc00;
+  background-color: #110000;
+}
+
+code, pre {
+  font-family: monospace;
+  background-color: #110000;
+  color: #ffcc00;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  overflow-x: auto;
+  padding: 1em;
+}
+
+code a {
+  color: #ff0000;
+}
+*/
+
